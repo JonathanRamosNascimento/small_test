@@ -1,0 +1,14 @@
+<div class="lista">
+  <div class="header">
+    <div class="form">
+      <label for="item">Item</label>
+      <input [formControl]="item" name="item" type="text">
+    </div>
+    <button (click)="insereItem()">Criar</button>
+  </div>
+  <div>
+    <ul>
+      <li *ngFor="let item of lista">{{ item }}</li>
+    </ul>
+  </div>
+</div>
