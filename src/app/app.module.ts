@@ -1,3 +1,5 @@
+import { MatConfirmDialogComponent } from './lista/mat-confirm-dialog/mat-confirm-dialog.component';
+import { ListaComponent } from './lista/components/lista/lista.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,7 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
-    FormEnderecoComponent
+    FormEnderecoComponent,
+    MatConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[MatConfirmDialogComponent]
 })
 export class AppModule { }

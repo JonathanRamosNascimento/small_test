@@ -1,3 +1,4 @@
+import { DialogService } from './../../dialog.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -16,6 +17,7 @@ export class ListaComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private dialogService: DialogService
   ) { }
 
   ngOnInit() {
@@ -34,5 +36,13 @@ export class ListaComponent implements OnInit {
       'Item A',
       'Item B'
     ];
+  }
+
+  onConfirm() {
+    this.dialogService.openConfirmDialog('Deseja adicionar este item na lista?').afterClosed()
+      .subscribe(res => {
+        if (res === true)
+          this.insereItem();
+      });
   }
 }

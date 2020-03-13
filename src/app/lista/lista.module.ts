@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ListaRoutingModule,
     ReactiveFormsModule,
     MaterialModule
-  ]
+  ],
+
 })
 export class ListaModule { }
