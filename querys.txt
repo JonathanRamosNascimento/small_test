@@ -1,0 +1,18 @@
+primeira:
+
+SELECT
+AVG(c.valor_pago)
+FROM comanda c
+WHERE c.status = 'F'
+
+segunda:
+
+SELECT
+iv.id_produto,
+p.nome,
+COUNT(iv.id_produto) as quantidade
+FROM item_venda iv
+INNER JOIN produto p ON p.id_produto = iv.id_produto
+GROUP BY iv.id_produto, p.nome
+ORDER BY quantidade DESC
+LIMIT 1

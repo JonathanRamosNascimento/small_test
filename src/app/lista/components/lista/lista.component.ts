@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-lista',
@@ -8,23 +8,25 @@ import { FormControl } from '@angular/forms';
 })
 export class ListaComponent implements OnInit {
 
-  protected item: FormControl;
-  protected lista: string[] = [];
+  lista: string[] = [];
 
-  constructor() { }
+  itemForm: FormGroup = this.fb.group({
+    'item': ['', [Validators.required]],
+  });
+
+  constructor(
+    private fb: FormBuilder,
+  ) { }
 
   ngOnInit() {
-    this.initForm();
     this.initLista();
   }
 
   insereItem() {
-    this.lista.push(this.item.value);
-    this.item.reset();
-  }
-
-  private initForm() {
-    this.item = new FormControl();
+    if (this.itemForm.valid) {
+      this.lista.push(this.itemForm.get('item').value);
+      this.itemForm.reset();
+    }
   }
 
   private initLista() {
